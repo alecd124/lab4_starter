@@ -14,7 +14,6 @@ function sumValues(num1, num2, add) {
         return false;
     }
 }
-
 /**
  * 
  * @param {*} prices - An array of original prices.
