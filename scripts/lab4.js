@@ -3,9 +3,13 @@
  * @param {*} num1 - First number to add.
  * @param {*} num2 - Second number to add.
  * @param {*} add - Boolean value to tell the function what to do.
- * @returns The sum of num1 and num2 if add is true; false otherwise.
+ * @returns The sum of num1 and num2 if add is true and both are numbers; false otherwise.
  */
 function sumValues(num1, num2, add) {
+    if (typeof num1 !== 'number' || typeof num2 !== 'number') {
+        return false;
+    }
+
     if (add === true) {
         let result = 0;
         result = num1 + num2;
@@ -21,10 +25,10 @@ function sumValues(num1, num2, add) {
  * @returns An array of discounted prices, or false if input is invalid.
  */
 function discountPrices(prices, discount) {
-
     if (!Array.isArray(prices) || typeof discount !== 'number') {
         return false;
     }
+
     if (prices.length === 0) return false;
 
     const discounted = [];
@@ -32,6 +36,8 @@ function discountPrices(prices, discount) {
         let discountedPrice = prices[i] * (1 - discount);
         discounted.push(discountedPrice);
     }
+
     return discounted;
 }
+
 module.exports = { sumValues, discountPrices };
